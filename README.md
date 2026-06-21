@@ -65,7 +65,7 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 
 ```
 nn-learning-log/
-├── notes/            # Personal notes on concepts
+├── notes/
 └── README.md
 ```
 
