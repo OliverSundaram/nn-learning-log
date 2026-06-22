@@ -21,7 +21,7 @@ print(torch.div(tensor, 2))
 
 
 # Matrix Multiplication (dot product)
-# torch.matmul
+# torch.matmul (matrix multiply)
 print(torch.matmul(tensor, tensor)) # prints 14
 
 TENSOR1 = torch.tensor([[1, 2, 3]])
