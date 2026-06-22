@@ -10,7 +10,7 @@ import torch
 # Permute - Return a view of the input with dimensions permuted (swapped) in a certain way
 
 # Create a tensor
-tensor = torch.arange(1., 3.)
+tensor = torch.arange(1., 10.)
 
 print(tensor)
 print(tensor.shape)
