@@ -15,6 +15,8 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 ### June 2026
 - Started freeCodeCamp PyTorch course
 - Learned tensors, tensor operations, matrix multiplication
+- Tensor aggregation, reshaping, squeezing, indexing
+- Using numpy with PyTorch, reproducibility, and using GPU's
 - Set up GitHub + PyCharm workflow
 
 ### July 2026
@@ -33,7 +35,7 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] ML/DL basics, neural network anatomy, learning paradigms
 - [x] Tensors: creating, datatypes, attributes
 - [x] Tensor manipulation: matrix multiplication, reshaping, indexing
-- [ ] PyTorch ↔ NumPy, reproducibility, device-agnostic (GPU) code
+- [x] PyTorch ↔ NumPy, reproducibility, device-agnostic (GPU) code
 
 ### Chapter 1 — PyTorch Workflow
 - [ ] Train/test split
