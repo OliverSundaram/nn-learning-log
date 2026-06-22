@@ -14,7 +14,7 @@ print(x[0, 0, 2])
 print(x[0][0][2])
 print()
 
-# You can you ":" to select all of a target dimension
+# You can use ":" to select all of a target dimension
 # Get all values in the 0 dim, all in first, and all values at 0 index in 2nd dim
 print(x[:, :, 0])
 print()
