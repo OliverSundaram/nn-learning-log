@@ -6,7 +6,7 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 
 ## Current Status
 
-- Mastering matrix manipulation
+- Mastering PyTorch Fundamentals
 
 **Last updated:** 2026/6/21
 
