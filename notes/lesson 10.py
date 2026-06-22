@@ -17,7 +17,7 @@ max = torch.max(tensor)
 # mean = tensor.mean()
 # mean = torch.mean(tensor)
 
-# Got error after running mean()
+# Got error after running .mean()
 # The mean() takes in a floating point or complex dtype
 
 mean = torch.mean(tensor.type(torch.float32))
