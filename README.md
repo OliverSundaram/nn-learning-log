@@ -6,9 +6,9 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 
 ## Current Status
 
-- Mastering PyTorch Fundamentals
+- Mastering PyTorch Workflow
 
-**Last updated:** 2026/6/21
+**Last updated:** 2026/6/25
 
 ## Monthly Progress
 
