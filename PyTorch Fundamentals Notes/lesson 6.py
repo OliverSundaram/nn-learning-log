@@ -1,9 +1,9 @@
 import torch
 
-# # Getting attributes from tensors
-# # Get datatype with .dtype
-# # Get shape with .shape
-# # Get device with .device
+# Getting attributes from tensors
+# Get datatype with .dtype
+# Get shape with .shape
+# Get device with .device
 
 some_tensor = torch.rand(3, 4)
 print(some_tensor)
