@@ -1,6 +1,6 @@
 import torch
 
-# Finding min, max, mean, sum, etc. (tensor aggregation)
+# Finding tensor min, max, mean, sum, etc. (tensor aggregation)
 
 # New tensor
 tensor = torch.arange(0, 101, 10)
