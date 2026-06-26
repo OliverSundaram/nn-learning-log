@@ -17,6 +17,8 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 - Learned tensors, tensor operations, matrix multiplication
 - Tensor aggregation, reshaping, squeezing, indexing
 - Using numpy with PyTorch, reproducibility, and using GPU's
+- Splitting data into training and testing
+- Building neural networks
 - Set up GitHub + PyCharm workflow
 
 ### July 2026
@@ -38,10 +40,10 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] PyTorch ↔ NumPy, reproducibility, device-agnostic (GPU) code
 
 ### Chapter 1 — PyTorch Workflow
-- [ ] Train/test split
-- [ ] Building a model (`nn.Module` basics)
-- [ ] Loss functions and optimizers
-- [ ] Training loop (forward pass, backward pass, optimizer step)
+- [x] Train/test split
+- [x] Building a model (`nn.Module` basics)
+- [x] Loss functions and optimizers
+- [x] Training loop (forward pass, backward pass, optimizer step)
 - [ ] Saving/loading a model
 
 ### Chapter 2 — Neural Network Classification
@@ -76,5 +78,4 @@ nn-learning-log/
 ## Resources
 
 - [freeCodeCamp PyTorch Full Course](https://www.youtube.com/@freecodecamp)
-- [Khan Academy – Calculus & Linear Algebra](https://www.khanacademy.org/)
 - [PyTorch official docs](https://pytorch.org/docs/stable/index.html)
