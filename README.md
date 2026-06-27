@@ -44,7 +44,7 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] Building a model (`nn.Module` basics)
 - [x] Loss functions and optimizers
 - [x] Training loop (forward pass, backward pass, optimizer step)
-- [ ] Saving/loading a model
+- [x] Saving/loading a model
 
 ### Chapter 2 — Neural Network Classification
 - [ ] Classification architecture (inputs/outputs, logits → probabilities → labels)
