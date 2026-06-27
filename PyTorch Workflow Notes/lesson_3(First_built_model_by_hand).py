@@ -68,9 +68,9 @@ class LinearRegressionModel(nn.Module):
 model_0 = LinearRegressionModel()
 loss_fn = nn.L1Loss()
 optimizer = torch.optim.SGD(params=model_0.parameters(),
-                            lr=0.01) # Learning rate - how big or small the optimizer changes the parameters
+                            lr=0.00002) # Learning rate - how big or small the optimizer changes the parameters
 
-epochs = 1000
+epochs = 100000
 
 print("Before training:", model_0.state_dict())
 
@@ -94,7 +94,7 @@ for epoch in range(1, epochs + 1):
     # Step the optimizer (perform gradient descent)
     optimizer.step()
 
-    if epoch % 100 == 0 or epoch == 1:
+    if epoch % 10000 == 0 or epoch == 1:
         model_0.eval()
         with torch.inference_mode():
             test_preds = model_0(test_inputs)
@@ -105,7 +105,6 @@ for epoch in range(1, epochs + 1):
         train_loss_values.append(train_loss.item())
         test_loss_values.append(test_loss.item())
 
-print(f"Epoch: {epoch} | Training loss: {train_loss.item()} | Testing loss: {test_loss.item()}")
 print("After training:", model_0.state_dict())
 
 plot_loss_curve(epoch_count, train_loss_values, test_loss_values)
