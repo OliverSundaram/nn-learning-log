@@ -20,6 +20,14 @@ train_split = int(0.8 * len(inputs))
 train_inputs, test_inputs = inputs[:train_split], inputs[train_split:]
 train_outputs, test_outputs = outputs[:train_split], outputs[train_split:]
 
+def plot_loss_curve(epochs : list[int], train_losses : list[float], test_losses : list[float]) -> None:
+    plt.plot(epochs, train_losses, label="Train loss")
+    plt.plot(epochs, test_losses, label="Test loss")
+    plt.legend()
+    plt.title("Training and test loss curves")
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+
 def plot_predictions(train_inputs=train_inputs,
                      train_outputs=train_outputs,
                      test_inputs=test_inputs,
@@ -33,7 +41,7 @@ def plot_predictions(train_inputs=train_inputs,
     ax.scatter(test_inputs[:, 0], test_inputs[:, 1], test_outputs, c="g", s=10, label="Testing data") # Plot test data in green
 
     if predictions is not None:
-        ax.scatter(test_inputs[:, 0], test_inputs[:, 1], predictions.detach().cpu().numpy(), c="r", s=4, label="Predictions") # Plot the predictions if they exist in red
+        ax.scatter(test_inputs[:, 0], test_inputs[:, 1], predictions.numpy(), c="r", s=4, label="Predictions") # Plot the predictions if they exist in red
 
     ax.set_xlabel("Input 1")
     ax.set_ylabel("Input 2")
@@ -60,35 +68,45 @@ class LinearRegressionModel(nn.Module):
 model_0 = LinearRegressionModel()
 loss_fn = nn.L1Loss()
 optimizer = torch.optim.SGD(params=model_0.parameters(),
-                            lr=0.00001) # Learning rate - how big or small the optimizer changes the parameters
+                            lr=0.01) # Learning rate - how big or small the optimizer changes the parameters
 
-epochs = 300000
+epochs = 1000
 
 print("Before training:", model_0.state_dict())
-# Input count
-i = 0
-for epoch in range(epochs):
+
+epoch_count = []
+train_loss_values = []
+test_loss_values = []
+
+for epoch in range(1, epochs + 1):
     model_0.train()
 
     output_preds = model_0(train_inputs)
 
-    loss = loss_fn(output_preds, train_outputs)
+    train_loss = loss_fn(output_preds, train_outputs)
 
     # Zero optimizer gradient (they accumulate over time)
     optimizer.zero_grad()
 
     # Perform backpropagation on the loss with respect to the parameters of the model
-    loss.backward()
+    train_loss.backward()
 
     # Step the optimizer (perform gradient descent)
     optimizer.step()
 
-    if epoch % 10000 == 0:
-        print(f"Epoch: {epoch} | Loss: {loss.item()}")
+    if epoch % 100 == 0 or epoch == 1:
+        model_0.eval()
+        with torch.inference_mode():
+            test_preds = model_0(test_inputs)
+            test_loss = loss_fn(test_preds, test_outputs)
+        print(f"Epoch: {epoch} | Training loss: {train_loss.item()} | Testing loss: {test_loss.item()}")
 
+        epoch_count.append(epoch)
+        train_loss_values.append(train_loss.item())
+        test_loss_values.append(test_loss.item())
 
+print(f"Epoch: {epoch} | Training loss: {train_loss.item()} | Testing loss: {test_loss.item()}")
 print("After training:", model_0.state_dict())
-model_0.eval()
-with torch.inference_mode():
-    test_preds = model_0(test_inputs)
+
+plot_loss_curve(epoch_count, train_loss_values, test_loss_values)
 plot_predictions(predictions=test_preds)
