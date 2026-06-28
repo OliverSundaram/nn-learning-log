@@ -6,9 +6,9 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 
 ## Current Status
 
-- Mastering PyTorch Workflow
+- Mastering Neural network classification
 
-**Last updated:** 2026/6/25
+**Last updated:** 2026/6/28
 
 ## Monthly Progress
 
