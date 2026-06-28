@@ -42,7 +42,8 @@ class LinearRegressionModel(nn.Module):
     def __init__(self):
         super().__init__()
         self.linear_layer = nn.Linear(in_features=4,
-                                      out_features=1)
+                                      out_features=1,
+                                      device=device)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.linear_layer(x).squeeze()
@@ -90,3 +91,26 @@ for epoch in range(1, epochs + 1):
 
 print(f"After training | {model.state_dict()}")
 plot_loss_curve(epoch_count, train_loss_values, test_loss_values)
+
+
+from pathlib import Path
+# 1. Create models directory
+MODEL_PATH = Path("models")
+MODEL_PATH.mkdir(parents=True, exist_ok=True)
+
+# 2. Create model save path
+MODEL_NAME = "model_1_4_input_0_hidden_1_output.pth"
+MODEL_SAVE_PATH = MODEL_PATH / MODEL_NAME
+
+# 3. Save the model state dict
+print(f"Saving model to: {MODEL_SAVE_PATH}")
+torch.save(obj=model.state_dict(),
+           f=MODEL_SAVE_PATH)
+
+
+# Create a new instance of model
+model = LinearRegressionModel()
+model.load_state_dict(torch.load("models/model_1_4_input_0_hidden_1_output.pth"))
+model.to(device=device)
+
+print(model.state_dict())
