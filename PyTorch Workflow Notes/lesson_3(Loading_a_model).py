@@ -72,7 +72,7 @@ class LinearRegressionModel(nn.Module):
 
 model_0 = LinearRegressionModel()
 # Load the saved state dict of the saved model (this will update the model with updated parameters)
-model_0.load_state_dict(torch.load(f="models/01_pytorch_workflow_model_0.pth"))
+model_0.load_state_dict(torch.load(f="models/model_0_2_input_0_hidden_1_output.pth"))
 
 
 
