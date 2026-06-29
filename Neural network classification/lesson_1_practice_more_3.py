@@ -1,0 +1,101 @@
+from sklearn.datasets import make_circles
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import torch
+from torch import nn
+
+
+def accuracy_fn(y_true, y_preds):
+    correct = torch.eq(y_true, y_preds).sum().item()
+    acc = (correct/len(y_preds)) * 100
+    return acc
+
+
+num_samples = 10000
+
+# Create circles
+X, y = make_circles(num_samples, # Number of data
+                    noise=0.03, # Add noise to the data points
+                    random_state=42) # Set random seed
+
+# Change data into tensors, as they were returned as numpy arrays
+X = torch.Tensor(X)
+y = torch.Tensor(y)
+
+# Split data into training and testing
+X_train, X_test, y_train, y_test = train_test_split(X,
+                                                    y,
+                                                    test_size=0.2,
+                                                    random_state=42)
+
+# Setup device agnostic code so model can run on GPU if there is one
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+X_train = torch.Tensor(X_train).to(device)
+X_test = torch.Tensor(X_test).to(device)
+y_train = torch.Tensor(y_train).to(device)
+y_test = torch.Tensor(y_test).to(device)
+
+# Model with non-linear activations
+class CircleModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.layer_1 = nn.Linear(in_features=2, out_features=10)
+        self.layer_2 = nn.Linear(in_features=10, out_features=10)
+        self.layer_3 = nn.Linear(in_features=10, out_features=1)
+        self.relu = nn.ReLU() # ReLU is a non-linear activation function
+
+    def forward(self, x):
+        return self.layer_3(self.relu(self.layer_2(self.relu(self.layer_1(x)))))
+
+model = CircleModel().to(device)
+
+# Setup loss function and optimizer
+loss_fn = nn.BCEWithLogitsLoss() # Contains the sigmoid activation function built in
+optimizer = torch.optim.SGD(params=model.parameters(),
+                            lr=0.01)
+
+torch.manual_seed(42)
+torch.cuda.manual_seed(42)
+
+epochs = 10000
+
+for epoch in range(1, epochs + 1):
+
+    # Testing
+    model.train()
+    # Forward pass
+    y_logits = model(X_train).squeeze()
+    y_preds = torch.round(torch.sigmoid(y_logits)) # Turn logits into probabilities into labels
+    # Calculate loss/accuracy
+    loss = loss_fn(y_logits, # nn.BCEWIthLogitsLoss expects raw logits as input. DOes sigmoid by its self
+                   y_train)
+    acc = accuracy_fn(y_true=y_train, y_preds=y_preds)
+    optimizer.zero_grad()
+    # Backpropagation - Calculate gradients
+    loss.backward()
+    # Gradient descent - Update parameters to reduce loss
+    optimizer.step()
+
+    # Testing
+    if epoch % 1000 == 0:
+        model.eval()
+
+        with torch.inference_mode():
+
+            # Forward pass
+            test_logits = model(X_test).squeeze()
+            test_preds = torch.round(torch.sigmoid(test_logits))
+
+            # Calculate loss/acc
+            test_loss = loss_fn(test_logits, y_test)
+            test_acc = accuracy_fn(y_true=y_test, y_preds=test_preds)
+
+            print(f"Epoch: {epoch} | Loss:{loss} | Acc: {acc}% | Test loss: {test_loss} | Test acc: {test_acc}%")
+
+
+model.eval()
+with torch.inference_mode():
+    y_preds = torch.round(torch.sigmoid(model(X_test))).squeeze()
+
+print(y_test[:20], y_preds[:20])
