@@ -19,6 +19,7 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 - Using numpy with PyTorch, reproducibility, and using GPU's
 - Splitting data into training and testing
 - Building neural networks
+- Learning and implementing binary classifications & multiclass classifications
 - Set up GitHub + PyCharm workflow
 
 ### July 2026
@@ -47,10 +48,10 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] Saving/loading a model
 
 ### Chapter 2 — Neural Network Classification
-- [ ] Classification architecture (inputs/outputs, logits → probabilities → labels)
-- [ ] Train/test loops for classification
-- [ ] Non-linearity and multiclass classification
-- [ ] Troubleshooting a model
+- [x] Classification architecture (inputs/outputs, logits → probabilities → labels)
+- [x] Train/test loops for classification
+- [x] Non-linearity and multiclass classification
+- [x] Troubleshooting a model
 
 ### Chapter 3 — Computer Vision
 - [ ] Convolutional Neural Networks (CNNs) overview
