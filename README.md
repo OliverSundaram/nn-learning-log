@@ -6,9 +6,9 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 
 ## Current Status
 
-- Mastering Neural network classification
+- Mastering Computer Vision & Convolutional Neural Networks with PyTorch
 
-**Last updated:** 2026/6/28
+**Last updated:** 2026/6/29
 
 ## Monthly Progress
 
@@ -20,6 +20,7 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 - Splitting data into training and testing
 - Building neural networks
 - Learning and implementing binary classifications & multiclass classifications
+- Activation functions
 - Set up GitHub + PyCharm workflow
 
 ### July 2026
