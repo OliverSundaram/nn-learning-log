@@ -55,10 +55,10 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] Troubleshooting a model
 
 ### Chapter 3 — Computer Vision
-- [ ] Convolutional Neural Networks (CNNs) overview
-- [ ] DataLoaders and mini-batches
-- [ ] `nn.Conv2d` / `nn.MaxPool2d`
-- [ ] Training/evaluating a CNN, confusion matrix
+- [x] Convolutional Neural Networks (CNNs) overview
+- [x] DataLoaders and mini-batches
+- [x] `nn.Conv2d` / `nn.MaxPool2d`
+- [x] Training/evaluating a CNN, confusion matrix
 
 ### Chapter 4 — Custom Datasets
 - [ ] Custom dataset class from scratch
