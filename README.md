@@ -21,7 +21,8 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 - Building neural networks
 - Learning and implementing binary classifications & multiclass classifications
 - Activation functions
-- Set up GitHub + PyCharm workflow
+- Practice creating Convolutional Neural Networks
+- Using batches, kernels, pooling layers, softmax
 
 ### July 2026
 
@@ -81,3 +82,4 @@ nn-learning-log/
 
 - [freeCodeCamp PyTorch Full Course](https://www.youtube.com/@freecodecamp)
 - [PyTorch official docs](https://pytorch.org/docs/stable/index.html)
+- [Convolutional Neural Networks guide](https://poloclub.github.io/cnn-explainer/#article-flatten)
