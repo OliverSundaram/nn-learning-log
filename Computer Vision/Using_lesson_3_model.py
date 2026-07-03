@@ -11,8 +11,6 @@ from torch.utils.data import DataLoader
 from helper_functions import accuracy_fn
 from timeit import default_timer as timer
 
-from helper_functions import accuracy_fn
-
 KERNEL_SIZE = 3
 STRIDE = 1
 PADDING = 1
