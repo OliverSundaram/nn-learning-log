@@ -2,8 +2,6 @@
 
 Tracking my progress learning PyTorch and neural networks over summer 2026, following freeCodeCamp's **"PyTorch for Deep Learning & Machine Learning – Full Course,"** then branching into independent project work.
 
-This repo is a **learning log**, not a polished portfolio piece. My main project(s) will live in separate repos, linked at the bottom once they exist.
-
 ## Current Status
 
 - Finished freeCodeCamp's course
