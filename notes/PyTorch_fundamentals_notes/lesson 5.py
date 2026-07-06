@@ -13,7 +13,3 @@ print(float_16_tensor.dtype)
 unsigned_int_8_tensor = torch.tensor(data=[-1, 1, 2])
 
 print(unsigned_int_8_tensor[1])
-
-# Reflection
-# Datatypes for tensors are important for saving run time, or getting more complex numbers
-# The higher bit the more space it takes

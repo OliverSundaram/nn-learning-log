@@ -17,6 +17,3 @@ zeros = torch.zeros(size=(2, 1))
 print(zeros)
 
 print(zeros*MATRIX)
-
-# Reflection
-# YOu can create a tensor of a given shape that is filled with 0's or 1's
