@@ -6,27 +6,24 @@ This repo is a **learning log**, not a polished portfolio piece. My main project
 
 ## Current Status
 
-- Mastering Computer Vision & Convolutional Neural Networks with PyTorch
+- Finished freeCodeCamp's course
 
-**Last updated:** 2026/6/29
+**Last updated:** 2026/7/05
 
 ## Monthly Progress
 
 ### June 2026
-- Started freeCodeCamp PyTorch course
-- Learned tensors, tensor operations, matrix multiplication
-- Tensor aggregation, reshaping, squeezing, indexing
-- Using numpy with PyTorch, reproducibility, and using GPU's
-- Splitting data into training and testing
-- Building neural networks
-- Learning and implementing binary classifications & multiclass classifications
-- Activation functions
-- Practice creating Convolutional Neural Networks
-- Using batches, kernels, pooling layers, softmax
+
+- Learned the PyTorch fundamentals (e.g., PyTorch functions, tensors)
+- Recreating the PyTorch workflow (Data preparation, model building, training & testing)
+- Creating a binary & multi-class classification model
+- Creating a CNN for a computer vision dataset
 
 ### July 2026
 
-- N/A
+- Downloading custom datasets online and turning them into tensors
+- Training a CNN with custom datasets
+- Overfitting and underfitting solutions
 
 ### August 2026
 
@@ -62,11 +59,11 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 - [x] Training/evaluating a CNN, confusion matrix
 
 ### Chapter 4 — Custom Datasets
-- [ ] Custom dataset class from scratch
-- [ ] Data augmentation
-- [ ] Baseline model + loss curves
-- [ ] Overfitting/underfitting
-- [ ] Predicting on custom data
+- [x] Custom dataset class from scratch
+- [x] Data augmentation
+- [x] Baseline model + loss curves
+- [x] Overfitting/underfitting
+- [x] Predicting on custom data
 
 ## Repo Structure
 
