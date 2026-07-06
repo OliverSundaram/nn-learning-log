@@ -4,7 +4,7 @@ from sklearn.datasets import make_blobs
 from sklearn.model_selection import train_test_split
 import time
 import matplotlib.pyplot as plt
-from helper_functions.Plot_decision_boundary import plot_decision_boundary as pdb
+from notes.helper_functions.Plot_decision_boundary import plot_decision_boundary as pdb
 from torchmetrics import Accuracy
 
 device = "cuda" if torch.cuda.is_available() else "cpu"

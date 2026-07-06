@@ -3,8 +3,7 @@ from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 import torch
 from torch import nn
-import random
-from helper_functions.Plot_decision_boundary import plot_decision_boundary as pdb
+from notes.helper_functions.Plot_decision_boundary import plot_decision_boundary as pdb
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def accuracy(y_true, y_pred):

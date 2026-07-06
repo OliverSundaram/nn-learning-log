@@ -1,21 +1,17 @@
 import torch
 from torch import nn
 
-from matplotlib import pyplot as plt
-
-import torchvision
 from torchvision import datasets
 from torchvision.transforms import ToTensor
 from torch.utils.data import DataLoader
-from timeit import default_timer as timer
-from helper_functions.helper_functions import accuracy_fn
+from notes.helper_functions.helper_functions import accuracy_fn
 
-train_data = datasets.CIFAR10(root="CIFAR10_data",
+train_data = datasets.CIFAR10(root="data/CIFAR10_data",
                               train=True,
                               transform=ToTensor(),
                               target_transform=None,
                               download=True)
-test_data = datasets.CIFAR10(root="CIFAR10_data",
+test_data = datasets.CIFAR10(root="data/CIFAR10_data",
                              train=False,
                              transform=ToTensor(),
                              target_transform=None,
