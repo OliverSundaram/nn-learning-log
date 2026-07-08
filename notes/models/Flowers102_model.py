@@ -21,11 +21,11 @@ test_transform = transforms.Compose([
 ])
 
 train_data = datasets.Flowers102(root="data/Flowers102_data",
-                                 split="train",
+                                 split="test",
                                  transform=train_transform,
                                  download=True)
 test_data = datasets.Flowers102(root="data/Flowers102_data",
-                                split="test",
+                                split="train",
                                 transform=test_transform,
                                 download=True)
 class_labels = train_data.classes
@@ -87,14 +87,14 @@ model = Flowers102(input_channels=3, hidden_units=10, output_labels=102)
 model.load_state_dict(torch.load(f="models_state_dict/CNN_for_Flowers102.pth"))
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(params=model.parameters(),
-                            lr=0.1)
+                            lr=0.001)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer=optimizer, step_size=20, gamma=0.1)
 
-epochs = 5
+epochs = 100
 for epoch in range(1, epochs + 1):
-
-    train_loss, train_acc = train(model=model, loss_fn=loss_fn, optimizer=optimizer, accuracy_fn=accuracy_fn, train_dataloader=train_dataloader)
+    model, train_loss, train_acc = train(model=model, loss_fn=loss_fn, optimizer=optimizer, accuracy_fn=accuracy_fn, train_dataloader=train_dataloader)
     test_loss, test_acc = test(model=model, loss_fn=loss_fn, accuracy_fn=accuracy_fn, test_dataloader=test_dataloader)
-
+    scheduler.step()
     print(f"Epoch: {epoch} | Train loss: {train_loss} | Train acc: {train_acc}% | Test loss: {test_loss} | Test acc: {test_acc}%")
 
 # Saving PyTorch model
