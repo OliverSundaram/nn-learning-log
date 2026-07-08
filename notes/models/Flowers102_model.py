@@ -11,12 +11,12 @@ from notes.helper_functions.helper_functions import accuracy_fn
 from notes.helper_functions.loops import train, test
 
 train_transform = transforms.Compose([
-    transforms.Resize((64, 64)),
+    transforms.Resize((32, 32)),
     transforms.TrivialAugmentWide(),
     transforms.ToTensor()
 ])
 test_transform = transforms.Compose([
-    transforms.Resize((64, 64)),
+    transforms.Resize((32, 32)),
     transforms.ToTensor()
 ])
 
@@ -57,7 +57,7 @@ class Flowers102(nn.Module):
                       stride=STRIDE,
                       padding=PADDING),
             nn.ReLU(),
-            nn.MaxPool2d(4)
+            nn.MaxPool2d(2)
         )
         self.conv_block_2 = nn.Sequential(
             nn.Conv2d(in_channels=hidden_units,
@@ -87,10 +87,10 @@ model = Flowers102(input_channels=3, hidden_units=10, output_labels=102)
 model.load_state_dict(torch.load(f="models_state_dict/CNN_for_Flowers102.pth"))
 loss_fn = nn.CrossEntropyLoss()
 optimizer = torch.optim.SGD(params=model.parameters(),
-                            lr=0.001)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer=optimizer, step_size=20, gamma=0.1)
+                            lr=0.1)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer=optimizer, step_size=15, gamma=0.1)
 
-epochs = 100
+epochs = 80
 for epoch in range(1, epochs + 1):
     model, train_loss, train_acc = train(model=model, loss_fn=loss_fn, optimizer=optimizer, accuracy_fn=accuracy_fn, train_dataloader=train_dataloader)
     test_loss, test_acc = test(model=model, loss_fn=loss_fn, accuracy_fn=accuracy_fn, test_dataloader=test_dataloader)
