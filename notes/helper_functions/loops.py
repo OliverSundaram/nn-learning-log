@@ -25,7 +25,7 @@ def train(model: torch.nn.Module,
     train_loss /= len(train_dataloader)
     train_acc /= len(train_dataloader)
 
-    return train_loss, train_acc
+    return model, train_loss, train_acc
 
 def test(model: torch.nn.Module,
           loss_fn: torch.nn.CrossEntropyLoss | torch.nn.BCEWithLogitsLoss,
