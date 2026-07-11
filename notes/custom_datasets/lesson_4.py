@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import torch
+import torchvision.io
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision import transforms
