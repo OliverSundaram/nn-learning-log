@@ -73,7 +73,7 @@ for epoch in range(1, epochs + 1):
     # Gradient descent - Update parameters to reduce loss
     optimizer.step()
 
-    # Testing
+    # test
     model_0.eval()
     with torch.inference_mode():
 

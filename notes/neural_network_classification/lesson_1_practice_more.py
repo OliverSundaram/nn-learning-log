@@ -68,7 +68,7 @@ epochs = 1000
 
 for epoch in range(1, epochs + 1):
 
-    # Testing
+    # test
     model_0.train()
     # Forward pass
     y_logits = model_0(X_train).squeeze()
@@ -83,7 +83,7 @@ for epoch in range(1, epochs + 1):
     # Gradient descent - Update parameters to reduce loss
     optimizer.step()
 
-    # Testing
+    # test
     if epoch % 100 == 0:
         model_0.eval()
 

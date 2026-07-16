@@ -70,7 +70,7 @@ def accuracy_fn(y_true, y_preds):
     acc = (correct/len(y_preds)) * 100
     return acc
 
-# Training model
+# train model
 # 1. Forward pass
 # 2. Calculate the loss
 # 3. Optimizer zero grad

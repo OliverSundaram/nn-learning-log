@@ -68,7 +68,7 @@ y_blob_test = y_blob_test.to(device)
 torch.manual_seed(42)
 torch.cuda.manual_seed(42)
 
-# Training loop
+# train loop
 epochs = 1000
 for epoch in range(1, epochs + 1):
 
@@ -84,7 +84,7 @@ for epoch in range(1, epochs + 1):
     train_loss.backward()
     optimizer.step()
 
-    # Testing
+    # test
     if (epoch % (epochs / 10)) == 0 or epoch == 1:
         model.eval()
         with torch.inference_mode():

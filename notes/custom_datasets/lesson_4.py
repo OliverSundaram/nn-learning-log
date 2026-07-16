@@ -148,7 +148,7 @@ for epoch in range(1, epochs + 1):
         optimizer.step()
     train_loss /= len(train_dataloader)
     train_acc /= len(train_dataloader)
-    # Testing
+    # test
     model.eval()
     with torch.inference_mode():
         test_loss, test_acc = 0, 0

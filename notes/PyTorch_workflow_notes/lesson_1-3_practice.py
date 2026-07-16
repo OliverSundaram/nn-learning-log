@@ -17,7 +17,7 @@ def plot_loss_curve(epochs : list[int], train_loss_values : list[float], test_lo
     plt.plot(epochs, train_loss_values, label="Train loss")
     plt.plot(epochs, test_loss_values, label="Test loss")
     plt.legend()
-    plt.title("Training and test loss curves")
+    plt.title("train and test loss curves")
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
     plt.show()
@@ -83,7 +83,7 @@ for epoch in range(1, epochs + 1):
             test_predictions = model(test_data)
             test_loss = loss_fn(test_predictions, test_outputs)
 
-        print(f"Test at epoch {epoch} | Training loss : {train_loss.item()} | Testing loss : {test_loss.item()}")
+        print(f"Test at epoch {epoch} | train loss : {train_loss.item()} | Testing loss : {test_loss.item()}")
 
         epoch_count.append(epoch)
         train_loss_values.append(train_loss.item())

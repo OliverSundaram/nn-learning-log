@@ -84,7 +84,7 @@ optimizer = torch.optim.SGD(params=model.parameters(),
 
 epochs = 50
 for epoch in range(1, epochs + 1):
-    # Training loop
+    # train loop
     model.train()
     train_loss, train_acc = 0, 0
     for batch in train_dataloader:
@@ -100,7 +100,7 @@ for epoch in range(1, epochs + 1):
         optimizer.step()
     train_loss /= len(train_dataloader)
     train_acc /= len(train_dataloader)
-    # Testing loop
+    # test loop
     model.eval()
     with torch.inference_mode():
         test_loss, test_acc = 0, 0

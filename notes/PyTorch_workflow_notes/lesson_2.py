@@ -82,7 +82,7 @@ optimizer = torch.optim.SGD(params=model_0.parameters(), # The models_state_dict
 # 5. Optimizer step - use the optimizer to adjust our model's
 #    parameters to try and improve the loss (gradient descent)
 
-# Training loop
+# train loop
 epochs = 100000
 
 print("Before training:", model_0.state_dict())

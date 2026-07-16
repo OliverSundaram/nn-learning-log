@@ -24,7 +24,7 @@ def plot_loss_curve(epochs : list[int], train_losses : list[float], test_losses 
     plt.plot(epochs, train_losses, label="Train loss")
     plt.plot(epochs, test_losses, label="Test loss")
     plt.legend()
-    plt.title("Training and test loss curves")
+    plt.title("train and test loss curves")
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
 
@@ -37,8 +37,8 @@ def plot_predictions(train_inputs=train_inputs,
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    ax.scatter(train_inputs[:, 0], train_inputs[:, 1], train_outputs, c="b", s=10, label="Training CIFAR10_data") # Plot training CIFAR10_data in blue
-    ax.scatter(test_inputs[:, 0], test_inputs[:, 1], test_outputs, c="g", s=10, label="Testing CIFAR10_data") # Plot test CIFAR10_data in green
+    ax.scatter(train_inputs[:, 0], train_inputs[:, 1], train_outputs, c="b", s=10, label="train CIFAR10_data") # Plot training CIFAR10_data in blue
+    ax.scatter(test_inputs[:, 0], test_inputs[:, 1], test_outputs, c="g", s=10, label="test CIFAR10_data") # Plot test CIFAR10_data in green
 
     if predictions is not None:
         ax.scatter(test_inputs[:, 0], test_inputs[:, 1], predictions.numpy(), c="r", s=4, label="Predictions") # Plot the predictions if they exist in red
@@ -110,7 +110,7 @@ for epoch in range(1, epochs + 1):
         with torch.inference_mode():
             test_preds = model_0(test_inputs)
             test_loss = loss_fn(test_preds, test_outputs)
-        print(f"Epoch: {epoch} | Training loss: {train_loss.item()} | Testing loss: {test_loss.item()}")
+        print(f"Epoch: {epoch} | train loss: {train_loss.item()} | test loss: {test_loss.item()}")
 
         epoch_count.append(epoch)
         train_loss_values.append(train_loss.item())

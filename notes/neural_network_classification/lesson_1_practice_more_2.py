@@ -54,7 +54,7 @@ torch.cuda.manual_seed(42)
 epochs = 10000
 
 for epoch in range(1, epochs + 1):
-    # Training
+    # train
     model.train()
     y_preds = model(X_train).squeeze()
     train_loss = loss_fn(y_train, y_preds)
@@ -62,7 +62,7 @@ for epoch in range(1, epochs + 1):
     train_loss.backward()
     optimizer.step()
 
-    # Testing
+    # test
     if (epoch % (epochs / 10)) == 0 or epoch == 1:
         model.eval()
 

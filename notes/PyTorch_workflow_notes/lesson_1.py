@@ -57,10 +57,10 @@ def plot_predictions(train_data=X_train,
     plt.figure()
 
     # Plot training CIFAR10_data in blue
-    plt.scatter(train_data, train_labels, c="b", s=4, label="Training CIFAR10_data")
+    plt.scatter(train_data, train_labels, c="b", s=4, label="train CIFAR10_data")
 
     # Plot test CIFAR10_data in green
-    plt.scatter(test_data, test_labels, c="g", s=4, label="Testing CIFAR10_data")
+    plt.scatter(test_data, test_labels, c="g", s=4, label="test CIFAR10_data")
 
     if predictions is not None:
         # Plot the predictions if they exist
