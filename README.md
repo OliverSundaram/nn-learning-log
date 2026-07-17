@@ -23,10 +23,6 @@ Tracking my progress learning PyTorch and neural networks over summer 2026, foll
 - Training a CNN with custom datasets
 - Overfitting and underfitting solutions
 
-### August 2026
-
-- N/A
-
 ## Concepts Covered
 
 Update by checking boxes as you complete topics — no dates needed. Grouped by course chapter (freeCodeCamp PyTorch Full Course).
@@ -67,11 +63,13 @@ Update by checking boxes as you complete topics — no dates needed. Grouped by 
 
 ```
 nn-learning-log/
+├── brain_tumor_model/
 ├── notes/
+├── self_teaching/
 └── README.md
 ```
-
-## Projects Spun Off From This Log
+## Info
+This repo will no longer be updated and there will be no new files added. Please visit my other repo's as I will be displaying any projects that I create or any new tutorials that I choose to follow.
 
 ## Resources
 
